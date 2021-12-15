@@ -1,3 +1,7 @@
+#Nama : Sella Lorenza Akbar
+#NIM : 12219064
+#Program Produksi Minyak
+
 from datetime import datetime
 import streamlit as st
 import pandas as pd
@@ -122,7 +126,7 @@ col5,col6 = st.columns(2)
 lowest_tahun = data[(data['tahun']==tahun) & (data['produksi']>0)].sort_values('produksi').drop('tahun',axis=1).iloc[0]
 
 with col5:
-    st.subheader(f"Negara dengan Produksi Terrendah {tahun}")
+    st.subheader(f"Negara dengan Produksi Terendah {tahun}")
     st.components.v1.html(
         f'''
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -142,7 +146,7 @@ lowest = data.groupby(['name','kode_negara','region','sub-region'])['produksi'].
 lowest = lowest[lowest['produksi']>0].sort_values(by='produksi').iloc[0]
 
 with col6:
-    st.subheader(f"Negara dengan Produksi Terrendah Tahun {min(ts_chart.reset_index()['tahun'].dt.year)} - {max(ts_chart.reset_index()['tahun'].dt.year)}")
+    st.subheader(f"Negara dengan Produksi Terendah Tahun {min(ts_chart.reset_index()['tahun'].dt.year)} - {max(ts_chart.reset_index()['tahun'].dt.year)}")
     st.components.v1.html(
         f'''
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
